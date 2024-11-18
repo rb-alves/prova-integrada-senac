@@ -1,0 +1,67 @@
+{% load static %}
+<div class="d-flex">
+  <button class="toggle-btn" type="button">
+    <i class="lni lni-menu"></i>
+  </button>
+  <div class="sidebar-logo toggle-btn">
+      <a href="#">
+        <img src="{% static 'img/Senac_logo.png' %}" alt="" width="75px">
+      </a>
+  </div>
+</div>
+<ul class="sidebar-nav">
+  <li class="sidebar-item">
+      <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+          data-bs-target="#avaliacao" aria-expanded="false" aria-controls="avaliacao">
+          <i class="lni lni-agenda"></i>
+          <span>Avaliações</span>
+      </a>
+      <ul id="avaliacao" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Banco de Questões</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Provas</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Seleção de Questões</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Resultados</a>
+          </li>
+      </ul>
+  </li>
+  <li class="sidebar-item">
+      <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+          data-bs-target="#cadastro" aria-expanded="false" aria-controls="cadastro">
+          <i class="lni lni-cog"></i>
+          <span>Cadastros</span>
+      </a>
+      <ul id="cadastro" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Cursos</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Disciplinas</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">turmas</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Professores</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="#" class="sidebar-link">Alunos</a>
+          </li>
+          <li class="sidebar-item">
+              <a href="{% url 'lista_usuarios' %}" class="sidebar-link">Usuários</a>
+          </li>
+      </ul>
+  </li>
+</ul>
+<div class="sidebar-footer">
+  <a href="#" class="sidebar-link">
+      <i class="lni lni-exit"></i>
+      <span>Sair</span>
+  </a>
+</div>

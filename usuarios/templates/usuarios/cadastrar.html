@@ -1,0 +1,49 @@
+  <!-- Modal de cadastro -->
+  <div class="modal fade" id="usuarioCadastro" tabindex="-1" aria-labelledby="usuarioCadastroLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="usuarioCadastroLabel">Cadastro de Usuários</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{% url 'novo_usuario' %}" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+                <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite o nome do usuário">
+                </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="email do usuario">
+                </div>
+                <div class="col">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="cpf" class="form-control" id="cpf" name="cpf" required placeholder="CPF do usuario">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" required placeholder="Telefone do usuario">
+                </div>
+                <div class="col">
+                    <label for="perfil" class="form-label">Perfil</label>
+                    <select class="form-select" name="perfil" id="perfil">
+                        <option value="">Selecione...</option>
+                        {% for perfil_valor, perfil_titulo in perfis %}
+                            <option value="{{perfil_valor}}">{{perfil_titulo}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <input type="submit" class="btn btn-success" value="Cadastrar">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>

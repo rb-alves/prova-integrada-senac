@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+
+{% block page_title %}
+    Usuários
+{% endblock page_title %}
+
+{% block content %}
+
+<div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#usuarioCadastro">Cadastrar</button>
+</div>
+
+<div id="tabelaContainer">
+    <table id="usuarios" class="table table-hover mt-2" style:"width: 100%">
+        <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Perfil</th>
+            <th scope="col">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if usuarios %}
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{usuario.nome}}</td>
+                        <td>{{usuario.cpf}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.telefone}}</td>
+                        <td>{{usuario.perfil}}</td>
+                        <td>
+                            <a href="#"class="lni lni-pencil"></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<div>
+    {% include "usuarios/cadastrar.html" %}
+</div>
+
+{% endblock content %}
+
+
+
