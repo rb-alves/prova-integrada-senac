@@ -10,13 +10,14 @@
         {% include "usuarios/_alertas.html" %}
     </div>
 
+    <h1 id="titulo-pagina" class="mt-4">Usuários</h1>
 
     <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#usuarioCadastro">Cadastrar</button>
     </div>
 
     <div id="tabelaContainer">
-        <table id="usuarios" class="table table-hover mt-2" style="width: 100%">
+        <table id="usuarios" class="table table-hover mt-2" style="width: 100%;">
             <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -37,7 +38,7 @@
                             <td>{{usuario.telefone}}</td>
                             <td>{{usuario.perfil}}</td>
                             <td>
-                                <a href="#"class="lni lni-pencil"></a>
+                                <a href="{% url 'editar_usuario' usuario.id %}"class="lni lni-pencil"></a>
                             </td>
                         </tr>
                     {% endfor %}

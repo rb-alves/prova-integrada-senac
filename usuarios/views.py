@@ -39,3 +39,9 @@ def novoUsuario(request):
         # Redireciona para a lista de usuários
         return redirect("lista_usuarios")
 
+# Edita os usuarios cadastrados
+def editaUsuario(request, usuario_id):
+    usuario = get_object_or_404(Usuario, pk=usuario_id)
+    perfis = Usuario._meta.get_field("perfil").choices
+    return render(request, "usuarios/editar.html", {"usuario": usuario, "perfis": perfis})
+

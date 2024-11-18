@@ -158,3 +158,8 @@ th, td {
 
 }
 
+#titulo-pagina {
+    font-size: 24px;
+    color: #3D4856;
+    font-weight: 500;
+}
