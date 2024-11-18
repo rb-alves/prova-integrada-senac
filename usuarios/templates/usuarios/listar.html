@@ -5,6 +5,12 @@
 {% endblock page_title %}
 
 {% block content %}
+
+    <div>
+        {% include "usuarios/_alertas.html" %}
+    </div>
+
+
     <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#usuarioCadastro">Cadastrar</button>
     </div>

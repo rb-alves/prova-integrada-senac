@@ -29,3 +29,13 @@ function inicializarTabela(tabela){
 
 // Inicializa as tabelas ultlizando a configuração padrão da função datatables
 let colaboradores = inicializarTabela('#usuarios')
+
+
+// Inicializa os alertas personalizados
+document.addEventListener('DOMContentLoaded', function () {
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+  toastElList.forEach(function (toastEl) {
+      var toast = new bootstrap.Toast(toastEl);
+      toast.show();
+  });
+});
