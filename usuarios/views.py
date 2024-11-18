@@ -46,16 +46,12 @@ def editaUsuario(request, usuario_id):
     usuario = get_object_or_404(Usuario, pk=usuario_id)
 
     # Verifica se a requisição é do tipo POST
-    if request.method == "POST":
+  #  if request.method == "POST":
         # Recupera os valores do formulário de edição
-        nome = request.POST.get("nome")
-        email = request.POST.get("email")
-        cpf = request.POST.get("cpf")
-        telefone = request.POST.get("telefone")
-
-        try:
-            usuario.
-
+   #     nome = request.POST.get("nome")
+    #    email = request.POST.get("email")
+     #   cpf = request.POST.get("cpf")
+      #  telefone = request.POST.get("telefone")
 
 
     perfis = Usuario._meta.get_field("perfil").choices
