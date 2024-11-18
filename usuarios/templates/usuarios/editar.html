@@ -1,5 +1,11 @@
 {% extends "_base.html" %}
 
+
+{% block page_title %}
+    Editar Usuário
+{% endblock page_title %}
+
+
 {% block content %}
 
     <h1 id="titulo-pagina" class="mt-4">Usuário</h1>
@@ -11,39 +17,26 @@
 
             <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite o nome do usuário">
+                    <input type="text" class="form-control" id="nome" name="nome" required placeholder="Digite o nome do usuário" value="{{usuario.nome}}">
             </div>
 
             <div class="row mb-3">
                 <div class="col">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required placeholder="email do usuario">
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="email do usuario" value="{{usuario.email}}">
                 </div>
                 <div class="col">
                     <label for="cpf" class="form-label">CPF</label>
-                    <input type="cpf" class="form-control" id="cpf" name="cpf" required placeholder="CPF do usuario">
+                    <input type="cpf" class="form-control" id="cpf" name="cpf" required placeholder="CPF do usuario" value="{{usuario.cpf}}">
                 </div>
-            </div>
-
-            <div class="row">
                 <div class="col">
                     <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="telefone" name="telefone" required placeholder="Telefone do usuario">
-                </div>
-                <div class="col">
-                    <label for="perfil" class="form-label">Perfil</label>
-                    <select class="form-select" name="perfil" id="perfil">
-                        <option value="">Selecione...</option>
-                        {% for perfil_valor, perfil_titulo in perfis %}
-                            <option value="{{perfil_valor}}">{{perfil_titulo}}</option>
-                        {% endfor %}
-                    </select>
+                    <input type="text" class="form-control" id="telefone" name="telefone" required placeholder="Telefone do usuario" value="{{usuario.telefone}}">
                 </div>
             </div>
-
-            <div class="mt-4">
+            <div class="mt-4 ">
                 <a href="{% url 'lista_usuarios' %}" class="btn btn-secondary" >Voltar</a>
-                <input type="submit" class="btn btn-success" value="Cadastrar">
+                <input type="submit" class="btn btn-success" value="Atualizar Cadastro">
             </div>
 
         </form>
