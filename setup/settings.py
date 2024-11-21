@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-roz2is$f4n1gb3yd&t&m1ik8b(=*3rwk^%==h#v3uuns6t&+w1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
