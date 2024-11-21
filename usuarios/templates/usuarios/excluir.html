@@ -1,0 +1,26 @@
+<!-- Modal de Exclusão -->
+<div class="modal fade" id="usuarioDelete" tabindex="-1" aria-labelledby="usuarioDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="usuarioDeleteLabel">Exclusão Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+        
+        <p>
+            Realmente deseja excluir o usuário <strong>{{usuario.nome}}</strong> ?
+        </p>
+
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'excluir_usuario' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" id="usuario_id" name="usuario_id" value="{{usuario.id}}">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <input type="submit" class="btn btn-danger" value="Excluir">
+            </form>
+        </div>
+    </div>
+  </div>
+</div>

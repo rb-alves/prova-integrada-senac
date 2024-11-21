@@ -44,16 +44,43 @@ def editaUsuario(request, usuario_id):
     # A função get_object_or_404 possui dois argumentos (TABELA DO BANCO E ID)
     # Caso a função encontre o ID na tabela o registro é retornado, caso o ID não seja encontrado ocorrera um erro 404
     usuario = get_object_or_404(Usuario, pk=usuario_id)
+    perfis = Usuario._meta.get_field("perfil").choices
 
     # Verifica se a requisição é do tipo POST
-  #  if request.method == "POST":
+    if request.method == "POST":
         # Recupera os valores do formulário de edição
-   #     nome = request.POST.get("nome")
-    #    email = request.POST.get("email")
-     #   cpf = request.POST.get("cpf")
-      #  telefone = request.POST.get("telefone")
+        nome = request.POST.get("nome")
+        email = request.POST.get("email")
+        cpf = request.POST.get("cpf")
+        telefone = request.POST.get("telefone")
 
+        try:
+            # Atualiza os dados do usuário
+            usuario.nome = nome
+            usuario.email = email
+            usuario.cpf = cpf
+            usuario.telefone = telefone
+            
+            # Salva a edição no banco de dados
+            usuario.save()
+            messages.success(request, "Usuário atualizado com sucesso!")
 
-    perfis = Usuario._meta.get_field("perfil").choices
+        except Exception as e:
+            messages.error(request, f"Erro ao atualizar o usuário: {str(e)}")
+        return redirect("lista_usuarios")
     return render(request, "usuarios/editar.html", {"usuario": usuario, "perfis": perfis})
 
+
+# Excluir Usuario
+def excluiUsuario(request):
+    if request.method == "POST":
+        usuario_id = request.POST.get("usuario_id")
+        usuario = get_object_or_404(Usuario, pk=usuario_id)
+
+        try:
+            usuario.delete()
+            messages.success(request, "Usuário excluido com sucesso!")
+        except Exception as e:
+            messages.error(request, f"Erro ao excluir o usuário: {str(e)}")
+        
+        return redirect("lista_usuarios")
